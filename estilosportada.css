@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-image: url(https://www.fundacionaquae.org/wp-content/uploads/2020/10/bosques-1024x680.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+
+}
+
+.contenedor{
+    width: 80%;
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+    height: 100vh; /* Agregado */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Agregado */
+}
+
+header, footer{
+    margin: 20px 0;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+
+header{
+    background-color: rgb(76, 155, 76);
+}
+
+
+
+
+
