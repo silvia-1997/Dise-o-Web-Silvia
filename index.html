@@ -9,19 +9,79 @@
     
     
     <title>Vida solo hay una</title>
+
+     <!-- Estilos CSS en línea para el fondo gris -->
+     <style>
+        body {
+            background-color: #265231; /* Color gris claro para el fondo del cuerpo */
+        }
+
+         .container-xxl {
+            background-color: #9cc78d; /* Color gris claro para el fondo del contenedor */
+            padding: 20px; /* Espaciado interior */
+            margin-top: 20px; /* Espacio superior */
+            margin-bottom: 20px; /* Espacio inferior */
+        }
+
+    </style>
 </head>
 <body>
+
+
+    <!-- Encabezado -->   
+
+    <nav class="navbar bg-body-tertiary">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img src="https://cdn-icons-png.flaticon.com/512/284/284469.png" alt="Bootstrap" width="50" height="40">
+                    Vida solo hay una 
+            </a>
+
+            <!-- Los botones se agrupan en la esquina superior derecha -->
+            <div class="btn-group" role="group" aria-label="Botones de acción">
+
+                <!-- Botón "Agenda de Rutas" -->
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                     <i class="bi bi-bicycle"></i>
+                </button>
+
+                 <!-- Botón "Compra de bicicletas" -->
+                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <i class="bi bi-cart"></i>
+               </button>
+            
+                <!-- Botón "Contactanos" -->
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <i class="bi bi-telephone"></i>
+                </button>
+            
+                <!-- Botón "Iniciar sesión" -->
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                     <i class="bi bi-person"></i>
+                </button>
+            </div>
+
+            </button>
+
+        </div>
+
+      </nav>
   
 <!-- Se hacen los contenedores, dentro de cada contenedor, se agregaran las card de cada producto-->
-      <div class="container-xxl">
+    <div class="container-xxl mb-3">
+        <h2>Rodadas</h2>
+
 <!-- primera parte es de las rodadas-->
         <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+            <img src="img/desesos.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="card-link">Mas Informacion</a>
-              <a href="#" class="btn btn-primary">Apartar mi lugar</a>
+              <h5 class="card-title">Descensos</h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary">Todos los niveles</h6>
+              <p class="card-text">Edo. de México</p>
+              <p class="card-text">Rodada nocturna</p>
+              <p class="card-text">Costo: $1,500</p>
+              <a href="#" class="btn btn-success btn-sm">Mas Informacion</a>
+              <a href="#" class="btn btn-success btn-sm">Apartar lugar</a>
             </div>
           </div>
 
@@ -29,30 +89,31 @@
 
 <!-- caminatas-->
       
-      <div class="container-xxl">
+    <div class="container-xxl mb-3">
+        <h3>Caminatas</h3>
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="card-link">Mas Informacion</a>
-              <a href="#" class="btn btn-primary">Apartar mi lugar</a>
+              <h5 class="card-title">Tranqui Tequexquinahuac</h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary">Nivel Basico</h6>
+              <p class="card-text">Edo. de México</p>
+              <p class="card-text">Costo: 800</p>
+              <a href="#" class="btn btn-success btn-sm">Mas Informacion</a>
+              <a href="#" class="btn btn-success btn-sm">Apartar lugar</a>
             </div>
           </div>
-
       </div>
 
 <!-- bicis-->
 
-         <div class="container-xxl">
-
+    <div class="container-xxl mb-3">
+            <h4>Compra de bicis</h4>
         <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+            <img src="./img/TALON.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="card-link">Mas Informacion</a>
-              <a href="#" class="btn btn-primary">Apartar mi lugar</a>
+              <h5 class="card-title">Talon</h5>
+              <p class="card-text">Costo: 20000</p>
+              <a href="#" class="btn btn-success btn-sm">Mas Informacion</a>
+              <a href="#" class="btn btn-success btn-sm">Compra</a>
             </div>
           </div>
       </div>
