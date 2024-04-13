@@ -1,9 +1,6 @@
 /** * Definiciones de constantes para poder ligarlas con los archivos independientes de js y poder hacer las cartas */
 import {Ruta} from "./entities/Rutas.js";
 
-/**Establece el monto en pesos */
-const formatoPesosMexicanos = new Intl.NumberFormat('es-MX');
-
 /*** Crear el arreglo para ruta, caminatas y bicis */
 const rutas =[];
 
@@ -12,11 +9,11 @@ const contenedorRutas = document.getElementById("contenedorRutas");
 
 /** no cargar rutas, sin declararlas */
 const cargarRutas =() => {
-    rutas.push(new Ruta('Descensos', 'Todos los niveles', 'EDO. MEX', 1500, './img/desesos.jpg'));
-    rutas.push(new Ruta('Linderos', 'Avanzado', 'EDO. MEX', 1700, './img/linderos.jpg'));
-    rutas.push(new Ruta('Entrenamiento', 'Principiante', 'EDO. MEX', 1000, './img/entrenamiento.jpg'));
-    rutas.push(new Ruta('San Telmo', 'Intermedio', 'EDO. MEX', 1000, './img/santelmo.jpg'));
-    rutas.push(new Ruta('Paso de Cortes', 'Avanzado', 'EDO. MEX', 1000, './img/cortes.jpg'));
+    rutas.push(new Ruta('Descensos', 'Todos los niveles', 'EDO. MEX', 1500, './img/desesos.jpg','Rodada de montaña, se buscará realizar el descenso de tres pistas que están muy bien trazadas y en buenas condiciones.'));
+    rutas.push(new Ruta('Linderos', 'Avanzado', 'EDO. MEX', 1700, './img/linderos.jpg','Rodada para bicicletas de ruta'));
+    rutas.push(new Ruta('Entrenamiento', 'Principiante', 'EDO. MEX', 1000, './img/entrenamiento.jpg','Entrenamiento en bicicletas de montaña'));
+    rutas.push(new Ruta('San Telmo', 'Intermedio', 'EDO. MEX', 1000, './img/santelmo.jpg','Rodada recreativa de montaña para todos los niveles'));
+    rutas.push(new Ruta('Paso de Cortes', 'Avanzado', 'EDO. MEX', 1000, './img/cortes.jpg','Rodada para bicicletas de ruta'));
 }
 
 const creatEventoReservaRuta = (ruta) => {
@@ -55,11 +52,12 @@ const crearCardRuta =(ruta) => {
     cuerpoCard.innerHTML = `
         <h5 class="card-title">${ruta.nombre}</h5>
         <h6 class="card-subtitle mb-2 text-body-secondary">${ruta.nivel}</h6>
-        <h7 class="card-text">${ruta.ubicacion}</h7>
-        <h8 class="card-text">$${formatoPesosMexicanos.format(ruta.precio)}</h8>
+        <p class="card-text">${ruta.ubicacion}</p>
+        <p class="card-text">Costo: $${ruta.precio}</p>
+        <h9 class="card-text">${ruta.descripcion}</h9>
         `;
-    
-        //Card
+
+          //Card
     let card= document.createElement("div");
     card.className ='card';
     card.append(imagenRutas);
@@ -97,15 +95,15 @@ import { Caminatas } from "./entities/Caminata.js";
 const caminatas = [];
 const contenedorCaminatas = document.getElementById("contenedorCaminatas");
 const cargarCaminatas = () => {
-    caminatas.push(new Caminatas('Tranqui Tequexquinahuac', 'EDO. MEX', 800));
-    caminatas.push(new Caminatas('Entrenamiento', 'EDO. MEX', 800));
-    caminatas.push(new Caminatas('Prevención de incendios', 'EDO. MEX', 800));
+    caminatas.push(new Caminatas('Tranqui Tequexquinahuac', 'EDO. MEX', 800,'Dirigida a principiantes'));
+    caminatas.push(new Caminatas('Entrenamiento', 'EDO. MEX', 800,'Para todos los niveles, esta caminata se divide por pelotones'));
+    caminatas.push(new Caminatas('Prevención de incendios', 'EDO. MEX', 800,'Atenderemos la invitación del grupo de los castores de los Scouts'));
     caminatas.push(new Caminatas('Punto trino', 'EDO. MEX', 800));
 };
 
 const creatEventoReservaCaminata = (caminata) => {
     const evento = (ev) => {
-        Swal.fire("Suerte en la ruta: " + caminata.nombre);
+        Swal.fire("Suerte en la caminata: " + caminata.nombre);
     };
     return evento;
 };
@@ -132,14 +130,17 @@ const crearCardCaminata = (caminata) => {
     cuerpoCardCaminata.innerHTML = `
         <h5 class="card-title">${caminata.nombre}</h5>
         <h6 class="card-subtitle mb-2 text-muted">${caminata.lugar}</h6>
-        <p class="card-text">Costo: $${caminata.precio}</p>
+        <p class="card-text"> Costo: $${caminata.precio}</p>
+        <h9 class="card-text">${caminata.descripcion}</h9>
     `;
+    
 
     // Card completa
     let card = document.createElement("div");
     card.className = 'card';
     card.append(cuerpoCardCaminata);
     card.append(pieCardCaminata);
+    card.appendChild(pieCardCaminata);
 
     // Crear una columna (col) para la tarjeta
     let columna = document.createElement("div");
@@ -179,19 +180,19 @@ const cargaBicis = () => {
     bicicletas.push(new Bicis('PINARELLOF7', 20000, './img/PINARELLOF7.jpg'));
 };
 
-const creatEventoReservaBicis = (bicis) => {
+const creatEventoComprarBicis = (bicis) => {
     const evento = (ev) => {
-        Swal.fire("Suerte en la ruta: " + bicis.nombre);
+        Swal.fire("Buena Compra " + bicis.nombre);
     };
     return evento;
 };
 
 const crearCardBicis = (bicis) => {
-    // Botón de Reserva
-    let botonReserva = document.createElement("button");
-    botonReserva.classList.add("btn", "btn-success");
-    botonReserva.innerText = "Comprar";
-    botonReserva.onclick = creatEventoReservaBicis(bicis);
+    // Botón de comprar
+    let botonCompra = document.createElement("button");
+    botonCompra.classList.add("btn", "btn-success");
+    botonCompra.innerText = "Comprar";
+    botonCompra.onclick = creatEventoComprarBicis (bicis);
 
 
     // Cuerpo de la Card
@@ -211,7 +212,7 @@ const crearCardBicis = (bicis) => {
     // Footer de la Card
     let pieCardBicis = document.createElement("div");
     pieCardBicis.className = "card-footer text-end";
-    pieCardBicis.appendChild(botonReserva);
+    pieCardBicis.appendChild(botonCompra);
 
     // Card completa
     let card = document.createElement("div");
